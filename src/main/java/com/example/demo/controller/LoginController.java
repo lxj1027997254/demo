@@ -64,11 +64,12 @@ public class LoginController {
         System.out.println(IdcardUtil.getProvinceByIdCard(id));*/
 
         // http
+        // get
         HashMap<String, Object> paramMap = new HashMap<>();
         paramMap.put("name", "北京");
         String result = HttpUtil.get("http://127.0.0.1:8080/ttt/111", paramMap);
         Console.log(result);
-
+        // post(body)
         Order order = new Order(2, 222, "山东");
         String jsonStr = JSONUtil.toJsonStr(order);
         String result1 = HttpRequest.post("http://127.0.0.1:8080/ttt1").contentType("application/json").body(jsonStr).execute().body();
